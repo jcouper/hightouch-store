@@ -6,15 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const clearCartButton = document.getElementById("clear-cart-btn");
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
-  let cartItems = 0;
+  const cart = [];
 
   // Load cart item count on page load
-  loadCartItemCount();
+  updateCartCount();
 
-  addToCartButtons.forEach(button => {
+  addToCartButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
-      cartItems++;
-      updateCart();
+      addToCart(index);
       animateAddToCart();
     });
   });
@@ -23,10 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     const name = nameInput.value;
     const email = emailInput.value;
-    if (cartItems > 0 && name && email) {
+    if (cart.length > 0 && name && email) {
       alert(`Thank you, ${name}! Your order has been placed.`);
-      cartItems = 0;
-      updateCart();
+      clearCart();
+      updateCartCount();
     } else {
       alert("Please add items to the cart and provide your name and email.");
     }
@@ -34,31 +33,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   clearCartButton.addEventListener("click", () => {
     clearCart();
-    updateCart();
+    updateCartCount();
   });
 
+  function addToCart(itemIndex) {
+    cart.push(itemIndex);
+    updateCartCount();
+  }
+
   function clearCart() {
-    cartItems = 0;
-    localStorage.removeItem("cartItems");
+    cart.length = 0;
   }
 
-  function loadCartItemCount() {
-    const storedCartItems = localStorage.getItem("cartItems");
-    if (storedCartItems !== null) {
-      cartItems = parseInt(storedCartItems);
-      updateCart();
-    }
-  }
-
-  function updateCart() {
-    cartItemsCount.textContent = cartItems;
-    if (cartItems === 1) {
+  function updateCartCount() {
+    cartItemsCount.textContent = cart.length;
+    if (cart.length === 1) {
       cartLink.textContent = `View Cart (1 item)`;
     } else {
-      cartLink.textContent = `View Cart (${cartItems} items)`;
+      cartLink.textContent = `View Cart (${cart.length} items)`;
     }
-    // Update local storage
-    localStorage.setItem("cartItems", cartItems);
   }
 
   function animateAddToCart() {
