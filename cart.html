@@ -8,8 +8,8 @@
 </head>
 <body>
   <header>
-    <h1>Your Cart: <span id="cart-count">0</span> items</h1>
-    <a href="#" id="home">Back to Store</a>
+    <h1>Your Cart: <span id="cart-items-count">0</span> items</h1>
+    <a href="index.html" id="home">Back to Store</a>
   </header>
   <main>
     <div class="cart-details">
@@ -17,11 +17,13 @@
     </div>
     <div class="checkout-form">
       <h2>Checkout</h2>
-      <label for="name">Name:</label>
-      <input type="text" id="name" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" required>
-      <button id="checkout-btn">Checkout</button>
+      <form id="checkout-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <button type="submit" id="checkout-btn">Checkout</button>
+      </form>
     </div>
     <button id="clear-cart-btn">Clear Cart</button>
   </main>
