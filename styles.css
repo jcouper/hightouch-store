@@ -87,6 +87,7 @@ main {
 
 .cart-details p {
   font-size: 18px;
+  margin-top: 0;
 }
 
 .checkout-form {
