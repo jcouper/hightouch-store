@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function clearCart() {
     setSessionCart([]);
+    cartItemsCount.textContent = 0; // Reset cart items count to 0
   }
 
   function getSessionCart() {
