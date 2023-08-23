@@ -46,17 +46,22 @@ main {
   transform: translateY(-5px);
 }
 
-.product img {
-  max-width: 50%;
+.product-image {
+  max-width: 50%; /* Adjust the image size here */
   height: auto;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.price {
+.product-title {
+  color: #333;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.product-price {
   color: #555;
   font-weight: bold;
-  margin-top: 10px;
 }
 
 .add-to-cart {
