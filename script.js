@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = emailInput.value;
     if (cartItems > 0 && name && email) {
       alert(`Thank you, ${name}! Your order has been placed.`);
-      clearCart(); // Clear the cart after successful checkout
-      updateCart();
     } else {
       alert("Please add items to the cart and provide your name and email.");
     }
+    clearCart(); // Clear the cart when checkout button is clicked
+    updateCart();
   });
 
   clearCartButton.addEventListener("click", () => {
