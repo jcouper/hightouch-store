@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const storedCartItems = localStorage.getItem("cartItems");
     if (storedCartItems !== null) {
       cartItems = parseInt(storedCartItems);
+      updateCart();
     }
-    updateCart();
   }
 
   function updateCart() {
