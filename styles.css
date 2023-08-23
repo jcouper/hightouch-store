@@ -13,13 +13,13 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#home {
+#cart, #home {
   color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-#home:hover {
+#cart:hover, #home:hover {
   color: #f0f0f0;
 }
 
