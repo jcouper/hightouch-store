@@ -34,9 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   clearCartButton.addEventListener("click", () => {
-    cartItems = 0;
+    clearCart();
     updateCart();
   });
+
+  function clearCart() {
+    cartItems = 0;
+    localStorage.removeItem("cartItems");
+  }
 
   function loadCartItemCount() {
     const storedCartItems = localStorage.getItem("cartItems");
