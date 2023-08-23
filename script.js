@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const addToCartButtons = document.querySelectorAll(".add-to-cart");
   const cartLink = document.getElementById("cart");
+  const homeLink = document.getElementById("home");
   const cartItemsCount = document.getElementById("cart-items-count");
   const checkoutForm = document.getElementById("checkout-form");
   const nameInput = document.getElementById("name");
