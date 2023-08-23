@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const homeLink = document.getElementById("home");
   const cartItemsCount = document.getElementById("cart-items-count");
   const checkoutForm = document.getElementById("checkout-form");
-  const clearCartButton = document.getElementById("clear-cart-btn");
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
   let cartItems = 0;
@@ -33,17 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  clearCartButton.addEventListener("click", () => {
-    cartItems = 0;
-    updateCart();
-  });
-
   function loadCartItemCount() {
     const storedCartItems = localStorage.getItem("cartItems");
     if (storedCartItems !== null) {
       cartItems = parseInt(storedCartItems);
-      updateCart();
     }
+    updateCart();
   }
 
   function updateCart() {
