@@ -60,6 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const cart = getSessionCart();
     const cartItemCount = cart.length;
     cartItemsCount.textContent = cartItemCount;
+    updateCartLinkText(cartItemCount);
+  }
+
+  function updateCartLinkText(cartItemCount) {
     if (cartItemCount === 1) {
       cartLink.textContent = `View Cart (1 item)`;
     } else {
