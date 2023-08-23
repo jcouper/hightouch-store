@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = emailInput.value;
     if (cartItems > 0 && name && email) {
       alert(`Thank you, ${name}! Your order has been placed.`);
-      cartItems = 0;
+      clearCart(); // Clear the cart after successful checkout
       updateCart();
     } else {
       alert("Please add items to the cart and provide your name and email.");
@@ -32,9 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   clearCartButton.addEventListener("click", () => {
-    cartItems = 0;
+    clearCart();
     updateCart();
   });
+
+  function clearCart() {
+    cartItems = 0;
+    localStorage.removeItem("cartItems");
+  }
 
   function updateCart() {
     cartItemsCount.textContent = cartItems;
