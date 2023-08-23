@@ -81,4 +81,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function animateAddToCart() {
     const addedText = document.createElement("span");
     addedText.textContent = "Added to Cart!";
-    addedText.classList.add("added-to-cart
+    addedText.classList.add("added-to-cart");
+    document.body.appendChild(addedText);
+
+    setTimeout(() => {
+      addedText.remove();
+    }, 2000);
+  }
+});
