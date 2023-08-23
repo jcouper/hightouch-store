@@ -90,31 +90,31 @@ main {
   margin-top: 0;
 }
 
+/* Checkout Form Styles */
 .checkout-form {
   background-color: #fff;
-  text-align: center;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 300px; /* Adjust the width as needed */
+  width: 400px; /* Adjust the width as needed */
   margin-top: 20px;
 }
 
 .checkout-form h2 {
   color: #333;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .checkout-form label {
   display: block;
   margin-top: 10px;
-  text-align: left;
+  font-weight: bold;
 }
 
 .checkout-form input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -124,11 +124,11 @@ main {
   background-color: #333;
   color: #fff;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .checkout-form button:hover {
