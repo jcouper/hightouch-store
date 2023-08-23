@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailInput = document.getElementById("email");
   let cartItems = 0;
 
+  // Load cart item count on page load
+  loadCartItemCount();
+
   addToCartButtons.forEach(button => {
     button.addEventListener("click", () => {
       cartItems++;
@@ -15,9 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
       animateAddToCart();
     });
   });
-
-  // Initialize cart item count on page load
-  updateCart();
 
   checkoutForm.addEventListener("submit", event => {
     event.preventDefault();
@@ -32,6 +32,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  function loadCartItemCount() {
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems !== null) {
+      cartItems = parseInt(storedCartItems);
+    }
+    updateCart();
+  }
+
   function updateCart() {
     cartItemsCount.textContent = cartItems;
     if (cartItems === 1) {
@@ -39,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       cartLink.textContent = `View Cart (${cartItems} items)`;
     }
+    // Update local storage
+    localStorage.setItem("cartItems", cartItems);
   }
 
   function animateAddToCart() {
