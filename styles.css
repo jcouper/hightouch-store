@@ -11,6 +11,17 @@ header {
   padding: 10px;
 }
 
+#cart {
+  color: #fff;
+  font-size: 18px; 
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#cart:hover {
+  color: #f0f0f0;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -26,7 +37,7 @@ main {
 }
 
 .product img {
-  max-width: 50%; 
+  max-width: 70%;
   height: auto;
 }
 
