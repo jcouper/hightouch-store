@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
 
+  if (!cartLink) {
+    console.error("cartLink element not found.");
+    return;
+  }
+
   updateCart();
 
   addToCartButtons.forEach((button, index) => {
@@ -64,21 +69,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateCartLinkText(cartItemCount) {
-    if (cartItemCount === 1) {
-      cartLink.textContent = `View Cart (1 item)`;
-    } else {
-      cartLink.textContent = `View Cart (${cartItemCount} items)`;
+    if (cartLink) {
+      if (cartItemCount === 1) {
+        cartLink.textContent = `View Cart (1 item)`;
+      } else {
+        cartLink.textContent = `View Cart (${cartItemCount} items)`;
+      }
     }
   }
 
   function animateAddToCart() {
     const addedText = document.createElement("span");
     addedText.textContent = "Added to Cart!";
-    addedText.classList.add("added-to-cart");
-    document.body.appendChild(addedText);
-
-    setTimeout(() => {
-      addedText.remove();
-    }, 2000);
-  }
-});
+    addedText.classList.add("added-to-cart
