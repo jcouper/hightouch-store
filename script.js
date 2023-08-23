@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Initialize cart item count on page load
+  updateCart();
+
   checkoutForm.addEventListener("submit", event => {
     event.preventDefault();
     const name = nameInput.value;
