@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const clearCartButton = document.getElementById("clear-cart-btn");
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
-  const cart = [];
+  let cartItems = parseInt(localStorage.getItem("cartItems")) || 0;
 
-  // Load cart item count on page load
-  updateCartCount();
+  updateCart();
 
   addToCartButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
-      addToCart(index);
+      cartItems++;
+      updateCart();
       animateAddToCart();
     });
   });
@@ -22,36 +22,28 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     const name = nameInput.value;
     const email = emailInput.value;
-    if (cart.length > 0 && name && email) {
+    if (cartItems > 0 && name && email) {
       alert(`Thank you, ${name}! Your order has been placed.`);
-      clearCart();
-      updateCartCount();
+      cartItems = 0;
+      updateCart();
     } else {
       alert("Please add items to the cart and provide your name and email.");
     }
   });
 
   clearCartButton.addEventListener("click", () => {
-    clearCart();
-    updateCartCount();
+    cartItems = 0;
+    updateCart();
   });
 
-  function addToCart(itemIndex) {
-    cart.push(itemIndex);
-    updateCartCount();
-  }
-
-  function clearCart() {
-    cart.length = 0;
-  }
-
-  function updateCartCount() {
-    cartItemsCount.textContent = cart.length;
-    if (cart.length === 1) {
+  function updateCart() {
+    cartItemsCount.textContent = cartItems;
+    if (cartItems === 1) {
       cartLink.textContent = `View Cart (1 item)`;
     } else {
-      cartLink.textContent = `View Cart (${cart.length} items)`;
+      cartLink.textContent = `View Cart (${cartItems} items)`;
     }
+    localStorage.setItem("cartItems", cartItems);
   }
 
   function animateAddToCart() {
