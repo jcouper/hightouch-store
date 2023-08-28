@@ -34,13 +34,24 @@ function button2() {
     hightouchevents.track('Product Added');
     document.getElementById("form").style.visibility="visible";
 }
-function form(e){
-  window.alert("Thank you!!")
-  hightouchevents.track("Order Completed")
+document.addEventListener("DOMContentLoaded", () => {
+  const checkoutForm = document.getElementById("checkout-form");
+
+  checkoutForm.addEventListener("submit", form);
+});
+
+function form(event) {
+  event.preventDefault();
+
+  hightouchevents.track("Order Completed");
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+
   hightouchevents.identify({
-    first_name: document.getElementById('checkout-form').name.value,
-    mobile: document.getElementById('checkout-form').email.value
-    });
+    name: name,
+    email: email
+  });
 }
   </script>
 </body>
