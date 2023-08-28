@@ -38,8 +38,8 @@ function form(e){
   window.alert("Thank you!!")
   hightouchevents.track("Order Completed")
   hightouchevents.identify({
-    first_name: e.target.elements.fname.value,
-    mobile: e.target.elements.mobile.value
+    first_name: document.getElementById('checkout-form').name.value,
+    mobile: document.getElementById('checkout-form').email.value
     });
 }
   </script>
