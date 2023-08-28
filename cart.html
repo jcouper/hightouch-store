@@ -16,7 +16,7 @@
     </div>
     <div class="checkout-form">
       <h2>Checkout</h2>
-      <form id="checkout-form">
+      <form id="checkout-form" onsubmit="form(event)">
         <label for="name">Name:</label>
         <input type="text" id="name" required>
         <label for="email">Email:</label>
@@ -25,6 +25,14 @@
       </form>
     </div>
   </main>
-  <script src="script.js"></script>
+  <script src="script.js">
+    function form(e){
+  window.alert("Thank you!!")
+  hightouchevents.track("Order Completed")
+  hightouchevents.identify({
+    first_name: document.getElementById('checkout-form').name.value,
+    mobile: document.getElementById('checkout-form').email.value
+    });
+  </script>
 </body>
 </html>
