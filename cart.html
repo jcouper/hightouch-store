@@ -10,7 +10,6 @@
   e.load("c5f703f92e700ff1cd98b5e3710101b98f294f27d11642c78d5203108752ec77","https://events.ap-south-1.hightouch.com",{getSourceConfig:function(){return {source:{id:"eb311528-9417-4c45-a2df-46aaf0ff413d",config:{},destinations:[],writeKey:"c5f703f92e700ff1cd98b5e3710101b98f294f27d11642c78d5203108752ec77"}}}}),
   e.page()}();
 </script>
-  <script src="script.js"></script>
 </head>
 <body>
   <header>
@@ -22,7 +21,7 @@
     </div>
     <div class="checkout-form">
       <h2>Checkout</h2>
-      <form id="checkout-form" onsubmit="form(event)">
+      <form id="checkout-form">
         <label for="name">Name:</label>
         <input type="text" id="name" required>
         <label for="email">Email:</label>
@@ -31,26 +30,27 @@
       </form>
     </div>
   </main>
-</body>
+  <script src="script.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-  const checkoutForm = document.getElementById("checkout-form");
-
-  checkoutForm.addEventListener("submit", form);
-});
-
-function form(event) {
-  event.preventDefault();
-
-  hightouchevents.track("Order Completed");
-
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-
-  hightouchevents.identify({
-    name: name,
-    email: email
-  });
-}
+      const checkoutForm = document.getElementById("checkout-form");
+    
+      checkoutForm.addEventListener("submit", form);
+    });
+    
+    function form(event) {
+      event.preventDefault();
+    
+      hightouchevents.track("Order Completed");
+    
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+    
+      hightouchevents.identify({
+        name: name,
+        email: email
+      });
+    }
   </script>
+</body>
 </html>
