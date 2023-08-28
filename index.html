@@ -24,6 +24,24 @@
       <button class="add-to-cart">Add to Cart</button>
     </div>
   </main>
-  <script src="script.js"></script>
+  <script src="script.js">
+    
+function button1() {
+    hightouchevents.track('Product Details Viewed');
+    document.getElementById("button2").style.visibility="visible";
+}
+function button2() {
+    hightouchevents.track('Product Added');
+    document.getElementById("form").style.visibility="visible";
+}
+function form(e){
+  window.alert("Thank you!!")
+  hightouchevents.track("Order Completed")
+  hightouchevents.identify({
+    first_name: e.target.elements.fname.value,
+    mobile: e.target.elements.mobile.value
+    });
+}
+  </script>
 </body>
 </html>
