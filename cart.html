@@ -31,27 +31,5 @@
       </form>
     </div>
   </main>
-  <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", () => {
-  const checkoutForm = document.getElementById("checkout-form");
-
-  checkoutForm.addEventListener("submit", form);
-});
-
-function form(event) {
-  event.preventDefault();
-
-  hightouchevents.track("Order Completed");
-
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-
-  hightouchevents.identify({
-    name: name,
-    email: email
-  });
-}
-
-  </script>
 </body>
 </html>
