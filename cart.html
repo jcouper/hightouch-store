@@ -32,13 +32,26 @@
     </div>
   </main>
   <script type="text/javascript">
-    function form(e){
+document.addEventListener("DOMContentLoaded", () => {
+  const checkoutForm = document.getElementById("checkout-form");
+
+  checkoutForm.addEventListener("submit", form);
+});
+
+function form(event) {
+  event.preventDefault();
+
   hightouchevents.track("Order Completed");
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+
   hightouchevents.identify({
-    name: document.getElementById('checkout-form').name.value,
-    email: document.getElementById('checkout-form').email.value
-    });
-    }
+    name: name,
+    email: email
+  });
+}
+
   </script>
 </body>
 </html>
