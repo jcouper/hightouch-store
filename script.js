@@ -5,13 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateCart();
 
-function product_added() {
-  hightouchevents.track('Product Added', {
-    name: document.getElementById("product-title").innerHTML,
-    price: document.getElementById("product-price").innerHTML
-  });
-}
-
   addToCartButtons.forEach(button => {
     button.addEventListener("click", () => {
       cartItemsCount++;
@@ -40,4 +33,10 @@ function product_added() {
   }
 });
 
+function product_added() {
+  hightouchevents.track('Product Added', {
+    name: document.getElementById("product-title").innerHTML,
+    price: document.getElementById("product-price").innerHTML
+  });
+}
 
