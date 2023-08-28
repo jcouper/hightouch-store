@@ -32,3 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000);
   }
 });
+
+function product_added() {
+    hightouchevents.track('Product Added');
+   name: document.getElementById("product-title").innerHTML,
+   price: document.getElementById("product-price").innerHTML
+}
