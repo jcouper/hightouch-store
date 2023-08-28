@@ -32,12 +32,12 @@
   </main>
   <script src="script.js">
     function form(e){
-  window.alert("Thank you!!")
-  hightouchevents.track("Order Completed")
+  hightouchevents.track("Order Completed");
   hightouchevents.identify({
-    first_name: document.getElementById('checkout-form').name.value,
-    mobile: document.getElementById('checkout-form').email.value
+    name: document.getElementById('checkout-form').name.value,
+    email: document.getElementById('checkout-form').email.value
     });
+    }
   </script>
 </body>
 </html>
