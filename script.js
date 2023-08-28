@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCart();
 
 function product_added() {
+  event.preventDefault();
   hightouchevents.track('Product Added', {
     name: document.getElementById("product-title").innerHTML,
     price: document.getElementById("product-price").innerHTML
